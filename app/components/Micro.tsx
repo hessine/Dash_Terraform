@@ -122,7 +122,6 @@ class Micro extends React.Component{
       <main className="container my-5">
         <main>
         <h1 className="text-primary text-center" > Configuration AWS </h1>   
-        < span className="text-primary text-center" > <button type="button"  className="btn btn-primary application" >Migration</button>  </ span> 
 
         </main>
 

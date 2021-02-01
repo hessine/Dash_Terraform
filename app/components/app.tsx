@@ -4,15 +4,13 @@ import * as io from "socket.io-client";
 
 import styled from "styled-components";
 import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
-
+import { NewContainerDialog } from "./newContainerModal";
 import NavBar from "./NavBar";
 import Dashboard from "./Dashboard";
 import Stopped from"./Stopped";
-import { NewContainerDialog } from "./newContainerModal";
-
-import Post from "./Post";
-
 import Micro from "./Micro";
+import Post from "./Post" ;
+import Ibm from "./Ibm" ;
 
 
 const Header = styled.div`
@@ -51,11 +49,12 @@ export const AppComponent: React.FC<{}> = () => {
         </Header>
         <NavBar />
         
-        <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
+        <Route exact path="/" component={() => <Redirect to="/micro" />} />
         <Route exact path="/dashboard" component={() => <Dashboard />} />
         <Route exact path="/stop" component={() => <Stopped />} />
         <Route exact path="/micro" component={() => <Micro />} />
         <Route exact path="/post" component={() => <Post />} />
+        <Route exact path="/ibm" component={() => <Ibm />} />
       
        </div>
        </Router>

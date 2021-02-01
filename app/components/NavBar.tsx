@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import NavItem from "./NavItem";
 
 const NavWrapper = styled.div`
-  background: black;
+  background: blue;
   width: 100vw;
   height: 50px;
   color: white;
@@ -34,6 +34,7 @@ const navOptions: NavOptions = [
   
   { icon: null, title: "AWS", path: "/micro" },
   { icon: null, title: "AZURE", path: "/post" },
+  { icon: null, title: "IBM", path: "/ibm" },
 
   
 
