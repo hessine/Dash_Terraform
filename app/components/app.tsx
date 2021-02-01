@@ -14,7 +14,7 @@ import Ibm from "./Ibm" ;
 
 
 const Header = styled.div`
-  background: Blue;
+  background: lightgreen;
   width: 100vw;
   height: 50px;
   display: flex;
