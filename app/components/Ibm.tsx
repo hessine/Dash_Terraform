@@ -43,7 +43,7 @@ class Ibm extends React.Component{
   async postData(value) {
 
 
-    fetch('http://localhost:6789/runM', {
+    fetch('http://localhost:6789/ExecIBM', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ class Ibm extends React.Component{
   async deleteData(value) {
 
 
-    fetch('http://localhost:6789/deleteM', {
+    fetch('http://localhost:6789/DIBM', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'

@@ -32,8 +32,8 @@ export interface NavOption {
 
 const navOptions: NavOptions = [
   
-  { icon: null, title: "AWS", path: "/micro" },
-  { icon: null, title: "AZURE", path: "/post" },
+  { icon: null, title: "AWS", path: "/aws" },
+  { icon: null, title: "AZURE", path: "/azure" },
   { icon: null, title: "IBM", path: "/ibm" },
 
   

@@ -8,13 +8,13 @@ import { NewContainerDialog } from "./newContainerModal";
 import NavBar from "./NavBar";
 import Dashboard from "./Dashboard";
 import Stopped from"./Stopped";
-import Micro from "./Micro";
-import Post from "./Post" ;
+import Aws from "./Aws";
+import Azure from "./Azure" ;
 import Ibm from "./Ibm" ;
 
 
 const Header = styled.div`
-  background: Black;
+  background: Blue;
   width: 100vw;
   height: 50px;
   display: flex;
@@ -49,11 +49,11 @@ export const AppComponent: React.FC<{}> = () => {
         </Header>
         <NavBar />
         
-        <Route exact path="/" component={() => <Redirect to="/micro" />} />
+        <Route exact path="/" component={() => <Redirect to="/aws" />} />
         <Route exact path="/dashboard" component={() => <Dashboard />} />
         <Route exact path="/stop" component={() => <Stopped />} />
-        <Route exact path="/micro" component={() => <Micro />} />
-        <Route exact path="/post" component={() => <Post />} />
+        <Route exact path="/aws" component={() => <Aws />} />
+        <Route exact path="/azure" component={() => <Azure />} />
         <Route exact path="/ibm" component={() => <Ibm />} />
       
        </div>

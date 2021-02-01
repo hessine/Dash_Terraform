@@ -13,9 +13,9 @@ const Docker = require('dockerode');
 var exec = require ('child_process').exec ;
 const fs = require('fs');
 const responsedelay = 50;   // miliseconds
-const rootPath = `files`;
-const rootPath2 = `Micro`;
-const rootPath1 = `Ibm`;
+const rootPath = `Azure`;
+const rootPath2 = `AWS`;
+const rootPath1 = `IBM`;
 
 
 
@@ -43,9 +43,8 @@ server.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 
 
-///////:///////////////DATA//////////////////////////////////////
 
-// upload handler
+/////// upload AZURE/////////////////////////////////////
 var uploadStorage = multer.diskStorage(
   {
       destination: function (req, file, cb)
@@ -131,8 +130,10 @@ app.get('/files-list', function(req, res)
         }
     });
 });
-///////////////////Microservice//////////////////
-// upload handler
+
+
+
+// upload AWS ////////////////
 var uploadStorage2 = multer.diskStorage(
   {
       destination: function (req, file, cb)
@@ -154,6 +155,8 @@ app.post('/upload2', upload.any(), function(req, res)
     console.log(req.files);
     console.log('file upload...');
 });
+
+//////////Upload IBM /////////////////
 var uploadStorage3 = multer.diskStorage(
   {
       destination: function (req, file, cb)
@@ -167,8 +170,8 @@ var uploadStorage3 = multer.diskStorage(
       }
   });
 
-  var upload = multer({ storage: uploadStorage3 });
-app.post('/upload3', upload.any(), function(req, res)
+  var upload3 = multer({ storage: uploadStorage3 });
+app.post('/upload3', upload3.any(), function(req, res)
 {
     res.status(200).send();
     console.log(req.files);
@@ -394,9 +397,9 @@ function ConvertSize(number)
 
 
 
-app.post('/rund', function(request, response){
+app.post('/AZ', function(request, response){
  
-  var str1 = "sh ./files/";
+  var str1 = "sh ./Azure/";
   var str2 = request.body.user.name ;
  
  
@@ -405,9 +408,9 @@ var res = str1.concat(str2);
   exec(res, (error, stdout, stderr) => { console.log(stdout); })
 })
  
-app.post('/runM', function(request, response){
+app.post('/AWS', function(request, response){
  
-  var str1 = "sh ./Micro/";
+  var str1 = "sh ./AWS/";
   var str2 = request.body.user.name ;
  
  
@@ -415,22 +418,24 @@ var res = str1.concat(str2);
   
   exec(res, (error, stdout, stderr) => { console.log(stdout); })
 })
-   
-
-app.post('/Migration', function(request, response){
- 
-  var str1 = "sh migration.sh";
- 
- 
-
   
-  exec(str1, (error, stdout, stderr) => { console.log(stdout); })
+app.post('/ExecIBM', function(request, response){
+ 
+  var str1 = "sh ./IBM/";
+  var str2 = request.body.user.name ;
+ 
+ 
+var res = str1.concat(str2);
+  
+  exec(res, (error, stdout, stderr) => { console.log(stdout); })
 })
+
+
    
 
-app.post('/deleteD', function(request, response){
+app.post('/DAZ', function(request, response){
  
-  var str1 = "./files/";
+  var str1 = "./Azure/";
   var str2 = request.body.user.name ;
   var res = str1.concat(str2);
 
@@ -446,9 +451,9 @@ app.post('/deleteD', function(request, response){
 })
 
 
-app.post('/deleteM', function(request, response){
+app.post('/DAWS', function(request, response){
  
-  var str1 = "./Micro/";
+  var str1 = "./AWS/";
   var str2 = request.body.user.name ;
   var res = str1.concat(str2);
 
@@ -464,7 +469,22 @@ app.post('/deleteM', function(request, response){
 })
 
  
-   
+app.post('/DIBM', function(request, response){
+var str1 = "./IBM/";
+var str2 = request.body.user.name ;
+var res = str1.concat(str2);
+
+fs.unlink(res, function(err) {
+  
+  if (err) throw err;
+
+  console.log('file deleted');
+  
+});
+
+
+})
+ 
 
 
 
